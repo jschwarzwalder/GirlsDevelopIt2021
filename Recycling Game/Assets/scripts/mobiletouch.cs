@@ -23,6 +23,30 @@ public class mobiletouch : MonoBehaviour
     private void Update()
     {
 
+  if(Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Stationary)
+            {
+                if (touch.position.x > screenWidth / 2)
+                {
+                    horizontal = 1.0f;
+                }
+                if (touch.position.x < screenWidth / 2)
+                {
+                    horizontal = -1.0f;
+                }
+            }
+        } else
+        {
+            horizontal = 0.0f;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        rigidbody2D.AddForce(new Vector2(horizontal * (moveSpeed * 20f) * Time.deltaTime, 0));
     }
 }
 
