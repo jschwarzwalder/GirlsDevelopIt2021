@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Jami Cinemachine Camera.unity
+    guid: 36afad68ecc0b5a4a9b44842373dac41
   m_configObjects: {}
