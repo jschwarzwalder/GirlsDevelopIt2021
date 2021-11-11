@@ -10,14 +10,17 @@ public class mobiletouch : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public Animator animator;
     public float screenWidth;
+    float screenHeight;
 
     private float horizontal = 0;
+    private float vertical = 0;
     private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
         screenWidth = Screen.width;
+        screenHeight = Screen.height;
     }
 
     private void Update()
@@ -32,21 +35,30 @@ public class mobiletouch : MonoBehaviour
                 if (touch.position.x > screenWidth / 2)
                 {
                     horizontal = 1.0f;
-                }
-                if (touch.position.x < screenWidth / 2)
+                } else if (touch.position.x < screenWidth / 2)
                 {
                     horizontal = -1.0f;
                 }
+                if (touch.position.y > screenHeight / 2)
+                {
+                    vertical = 1.0f;
+                } else if (touch.position.y < screenHeight / 2)
+                {
+                    vertical = -1.0f;
+                }
+                
             }
         } else
         {
             horizontal = 0.0f;
+            vertical = 0.0f;
         }
     }
 
     private void FixedUpdate()
     {
-        rigidbody2D.AddForce(new Vector2(horizontal * (moveSpeed * 20f) * Time.deltaTime, 0));
+        rigidbody2D.AddForce(new Vector2(horizontal * (moveSpeed * 20f) * Time.deltaTime, 
+        vertical * (moveSpeed * 20f) * Time.deltaTime));
     }
 }
 
