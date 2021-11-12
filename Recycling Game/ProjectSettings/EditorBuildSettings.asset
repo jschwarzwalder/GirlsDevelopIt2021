@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Jami with Art.unity
-    guid: ad866cc0ae2407a40a960a2f8f91ec28
+  m_Scenes: []
   m_configObjects: {}
