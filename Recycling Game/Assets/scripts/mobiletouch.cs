@@ -12,6 +12,12 @@ public class mobiletouch : MonoBehaviour
     public float screenWidth;
     float screenHeight;
 
+    public float maxX;
+    public float maxY;
+    public float minY;
+    public float minX;
+
+
     private float horizontal = 0;
     private float vertical = 0;
     private void Start()
@@ -59,6 +65,13 @@ public class mobiletouch : MonoBehaviour
     {
         rigidbody2D.AddForce(new Vector2(horizontal * (moveSpeed * 20f) * Time.deltaTime, 
         vertical * (moveSpeed * 20f) * Time.deltaTime));
+        
+        gameObject.transform.position = new Vector3(
+            Mathf.Clamp(gameObject.transform.position.x, minX, maxX)
+        , Mathf.Clamp(gameObject.transform.position.y, minY, maxY)
+        , gameObject.transform.position.z)
+        ;
+
     }
 }
 
